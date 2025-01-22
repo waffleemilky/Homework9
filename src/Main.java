@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -10,26 +12,16 @@ public class Main {
         expenditure[3] = 50000;
         expenditure[4] = 7500;
         int sum = 0;
-        for (int i = 0; i < expenditure.length; i++) {
-            sum += expenditure[i];
+        for (int j : expenditure) {
+            sum += j;
         }
         System.out.println("Сумма трат за месяц составила " + sum + " рублей");
 
 //        Task 2
 
         int[] expenditure1 = {12890, 3209, 5329, 9860, 20000};
-        int maxExpenditure = -1;
-        for (int i = 0; i < expenditure1.length; i++) {
-            if (expenditure1[i] > maxExpenditure) {
-                maxExpenditure = expenditure1[i];
-            }
-        }
-       int minExpenditure = expenditure1[0];
-        for (int i = 0; i < expenditure1.length; i++) {
-            if (expenditure1[i] < minExpenditure) {
-                minExpenditure = expenditure1[1];
-            }
-        }
+        int maxExpenditure = Arrays.stream(expenditure1).max().getAsInt();
+        int minExpenditure = Arrays.stream(expenditure1).min().getAsInt();
         System.out.println("Минимальная сумма трат за неделю составила " + minExpenditure + " рублей. Максимальная сумма трат за неделю составила " + maxExpenditure + " рублей.");
 
 //        Task 3
@@ -42,8 +34,8 @@ public class Main {
         expenditure2[4] = 7632;
         float sum2 = 0F;
         float mediumSum = 0F;
-        for (int i = 0; i < expenditure2.length; i++) {
-            sum2 += expenditure2[i];
+        for (int k : expenditure2) {
+            sum2 += k;
             mediumSum = sum2 / expenditure2.length;
         }
         System.out.println(mediumSum);
@@ -51,9 +43,12 @@ public class Main {
 //        Task 4
 
         char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for (int i = reverseFullName.length - 1; i >= 0; i--) {
-            System.out.print(reverseFullName[i]);
+        for (int i = 0; i < reverseFullName.length/2; i++) {
+            char temp = reverseFullName[i];
+            reverseFullName[i] = reverseFullName[reverseFullName.length - 1 - i];
+            reverseFullName[reverseFullName.length - 1 - i] = temp;
         }
+        System.out.println(Arrays.toString(reverseFullName));
 
     }
 }
