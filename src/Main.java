@@ -33,12 +33,11 @@ public class Main {
         expenditure2[3] = 2637;
         expenditure2[4] = 7632;
         float sum2 = 0F;
-        float mediumSum = 0F;
-        for (int k : expenditure2) {
-            sum2 += k;
-            mediumSum = sum2 / expenditure2.length;
+        for (int k = 0; k < expenditure2.length; k++) {
+            sum2 += expenditure2[k];
         }
-        System.out.println(mediumSum);
+        float mediumSum = sum2 / expenditure2.length;
+        System.out.println("Средняя сумма трат за месяц составила " + mediumSum + " рублей");
 
 //        Task 4
 
